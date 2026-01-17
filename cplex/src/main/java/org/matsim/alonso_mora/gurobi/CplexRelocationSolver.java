@@ -97,7 +97,6 @@ public class CplexRelocationSolver implements RelocationSolver {
 			}
 
 			cplex.end();
-			cplex.close();
 
 			return result;
 		} catch (IloException e) {

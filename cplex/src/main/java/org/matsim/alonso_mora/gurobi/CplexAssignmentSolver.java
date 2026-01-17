@@ -66,7 +66,6 @@ public class CplexAssignmentSolver implements AssignmentSolver {
 			cplex.setParam(IloCplex.Param.MIP.Display, 0);
 			cplex.setParam(IloCplex.Param.Threads, numberOfThreads);
 			cplex.setParam(IloCplex.Param.TimeLimit, timeLimit);
-			cplex.setParam(IloCplex.Param.ParamDisplay, false);
 			cplex.setParam(IloCplex.Param.MIP.Tolerances.MIPGap, optimalityGap);
 
 			// Create variables
@@ -188,7 +187,6 @@ public class CplexAssignmentSolver implements AssignmentSolver {
 			}
 
 			cplex.end();
-			cplex.close();
 
 			return solution;
 		} catch (IloException e) {
@@ -201,9 +199,8 @@ public class CplexAssignmentSolver implements AssignmentSolver {
 			IloCplex cplex = new IloCplex();
 			cplex.setParam(IloCplex.Param.MIP.Display, 0);
 			cplex.setParam(IloCplex.Param.Simplex.Display, 0);
-			cplex.setParam(IloCplex.Param.ParamDisplay, false);
 			cplex.getVersionNumber();
-			cplex.close();
+			cplex.end();
 
 			return true;
 		} catch (UnsatisfiedLinkError | NoClassDefFoundError | IloException e) {

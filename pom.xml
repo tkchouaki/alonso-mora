@@ -95,5 +95,10 @@
 			<artifactId>matsim</artifactId>
 			<version>${matsim.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>ilog</groupId>
+			<artifactId>cplex</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 </project>
