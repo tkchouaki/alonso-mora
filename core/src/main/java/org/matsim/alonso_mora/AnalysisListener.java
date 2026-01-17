@@ -251,9 +251,12 @@ class AnalysisListener implements IterationEndsListener {
 				for (int i = 0; i < occupancyInformation.size(); i++) {
 					OccupancyInformation row = occupancyInformation.get(i);
 
+					if (row.occupiedCountByItems.isEmpty()) {
+						continue;
+					}
 					List<String> processedRow = new ArrayList<>(Arrays.asList( //
 							String.valueOf(row.simulationTime), //
-							String.valueOf(row.occupiedCountByItems.get(0))));
+							String.valueOf(row.occupiedCountByItems.getFirst())));
 
 					for (int k = 0; k < maximumPersons; k++) {
 						if (k < row.occupiedCountByItems.size()) {
